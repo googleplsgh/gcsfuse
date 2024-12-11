@@ -226,7 +226,7 @@ func (testSuite *BufferedWriteTest) TestFlushWithNonZeroTruncatedLengthForEmptyO
 	require.Nil(testSuite.T(), testSuite.bwh.current)
 	testSuite.bwh.truncatedSize = 10
 
-	err := testSuite.bwh.Flush()
+	_, err := testSuite.bwh.Flush()
 
 	assert.NoError(testSuite.T(), err)
 	assert.Equal(testSuite.T(), testSuite.bwh.truncatedSize, testSuite.bwh.totalSize)
@@ -237,7 +237,7 @@ func (testSuite *BufferedWriteTest) TestFlushWithTruncatedLengthGreaterThanObjec
 	require.Nil(testSuite.T(), err)
 	testSuite.bwh.truncatedSize = 10
 
-	err = testSuite.bwh.Flush()
+	_, err = testSuite.bwh.Flush()
 
 	assert.NoError(testSuite.T(), err)
 	assert.Equal(testSuite.T(), testSuite.bwh.truncatedSize, testSuite.bwh.totalSize)
