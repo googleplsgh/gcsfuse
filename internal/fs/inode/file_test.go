@@ -743,7 +743,7 @@ func (t *FileTest) TestTruncateUpwardForEmptyGCSFileWhenStreamingWritesAreEnable
 		},
 		{
 			name:         "WithOutWrite",
-			performWrite: true,
+			performWrite: false,
 		},
 	}
 	for _, tc := range tbl {
